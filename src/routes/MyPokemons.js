@@ -3,7 +3,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles'
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
 import MyPokemonCard from '../components/MyPokemonCard'
-import { Typography } from '@material-ui/core'
+import Typography from '@material-ui/core/Typography'
 import { PokemonContext } from '../context/PokemonContext'
 
 const useStyles = makeStyles((theme) => ({

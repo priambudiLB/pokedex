@@ -21,19 +21,24 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(SRC_DIRECTORY, 'index.html')
+      template: path.join(SRC_DIRECTORY, 'public/index.html')
     }),
     new CopyWebpackPlugin(
       {
         patterns: [
           { from: path.join(SRC_DIRECTORY, 'assets'), to: path.join(ROOT_DIRECTORY, 'build') }
+          // { from: path.join(SRC_DIRECTORY, 'public'), to: path.join(ROOT_DIRECTORY, 'build') }
         ]
       }
     )
   ],
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+      {
+        test: /\.js?$/,
+        loader: 'babel-loader',
+        exclude: [/node_modules/]
+      },
       {
         test: /\.scss$/,
         use: [

@@ -15,8 +15,9 @@ module.exports = {
     ecmaFeatures: {
       jsx: true
     },
-    ecmaVersion: 2018,
-    sourceType: 'module'
+    ecmaVersion: 11,
+    sourceType: 'module',
+    allowImportExportEverywhere: true
   },
   settings: {
     react: {

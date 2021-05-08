@@ -1,6 +1,19 @@
 import React, { useState, useRef, useContext } from 'react'
 import { useQuery, gql } from '@apollo/client'
-import { Avatar, Button, Chip, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Fab, Grid, makeStyles, Menu, MenuItem, Paper, Snackbar, TextField, Typography } from '@material-ui/core'
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
+import Chip from '@material-ui/core/Chip'
+import Container from '@material-ui/core/Container'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import Grid from '@material-ui/core/Grid'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
+import TextField from '@material-ui/core/TextField'
+import Typography from '@material-ui/core/Typography'
 import capitalize from '../utilities/capitalize'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
@@ -9,6 +22,7 @@ import Loading from '../components/Loading'
 import PokeBall from '../assets/images/pokeball.svg'
 import debounce from '../utilities/debounce'
 import { PokemonContext } from '../context/PokemonContext'
+import makeStyles from '@material-ui/styles/makeStyles'
 
 const GET_POKEMON = gql`
   query pokemon($name: String!) {

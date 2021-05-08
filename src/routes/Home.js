@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import { useQuery, gql } from '@apollo/client'
 import PokemonCard from '../components/PokemonCard'
-import makeStyles from '@material-ui/core/styles/makeStyles'
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
-import InfiniteScroll from 'react-infinite-scroll-component'
+import InfiniteScroll from 'react-infinite-scroller'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import loadingGif from '../assets/images/giphy.gif'
 import FixedCenter from '../components/FixedCenter'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
 import Loading from '../components/Loading'
+import makeStyles from '@material-ui/core/styles/makeStyles'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,7 +40,7 @@ const Home = () => {
   const [hasMore, setHasMore] = useState(true)
   const { loading, error, fetchMore } = useQuery(GET_POKEMONS, {
     variables: {
-      limit: 30,
+      limit: 12,
       offset: 0
     },
     notifyOnNetworkStatusChange: false,
@@ -54,7 +53,7 @@ const Home = () => {
   const loadMore = () => {
     fetchMore({
       variables: {
-        limit: 20,
+        limit: 12,
         offset: data.length
       }
     }).then((newData) => {
@@ -73,18 +72,14 @@ const Home = () => {
   if (data) {
     return (
       <InfiniteScroll
-        scrollThreshold={0.9}
-        dataLength={data.length}
-        next={loadMore}
+        pageStart={0}
+        loadMore={loadMore}
         hasMore={hasMore}
         loader={<div css={css`text-align: center`}>
-          <CircularProgress />
+          <CircularProgress aria-label="progress" />
         </div>}
-        endMessage={
-          <p style={{ textAlign: 'center' }}>
-            <b>Yay! You have seen it all</b>
-          </p>
-        }
+        initialLoad={false}
+        threshold={400}
       >
         <Container maxWidth="lg">
           <div className={classes.root}>
