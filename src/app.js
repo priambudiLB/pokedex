@@ -4,7 +4,6 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import Snackbar from '@material-ui/core/Snackbar'
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import Alert from './components/Alert'
@@ -13,17 +12,12 @@ import { PokemonContext } from './context/PokemonContext'
 import routes from './route'
 
 export const App = () => {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
   const { snackbarOpen, handleSnackbarClose } = useContext(PokemonContext)
-  const theme = React.useMemo(
-    () =>
-      createMuiTheme({
-        palette: {
-          type: prefersDarkMode ? 'dark' : 'light'
-        }
-      }),
-    [prefersDarkMode]
-  )
+  const theme = createMuiTheme({
+    palette: {
+      type: 'dark'
+    }
+  })
 
   useEffect(() => {
     const myPokemons = localStorage.getItem('pokemons')
@@ -37,7 +31,7 @@ export const App = () => {
       <BrowserRouter>
         <Navigation />
         <Switch>
-          <Suspense fallback={'..'}>
+          <Suspense fallback={'.'}>
             {routes.map(route => {
               return <Route key={route.path} {...route} />
             })}
