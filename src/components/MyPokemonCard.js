@@ -1,10 +1,23 @@
 import React, { Fragment, useContext, useState } from 'react'
-import makeStyles from '@material-ui/core/styles/makeStyles'
-import { Button, Card, CardActions, CardContent, CardMedia, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton, Typography } from '@material-ui/core'
-import { Delete } from '@material-ui/icons'
-import { PokemonContext } from '../context/PokemonContext'
+
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
+import Button from '@material-ui/core/Button'
+import Card from '@material-ui/core/Card'
+import CardActions from '@material-ui/core/CardActions'
+import CardContent from '@material-ui/core/CardContent'
+import CardMedia from '@material-ui/core/CardMedia'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import IconButton from '@material-ui/core/IconButton'
+import makeStyles from '@material-ui/core/styles/makeStyles'
+import Typography from '@material-ui/core/Typography'
+import Delete from '@material-ui/icons/Delete'
+
+import { PokemonContext } from '../context/PokemonContext'
 
 const removeDuration = 3
 const useStyles = makeStyles({

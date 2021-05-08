@@ -1,4 +1,5 @@
 const config = require('./webpack.config.js')
+
 const merge = require('webpack-merge')
 const BrotliPlugin = require('brotli-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')

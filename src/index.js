@@ -1,10 +1,12 @@
 import '@babel/polyfill'
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { App } from './app'
+
 import { ApolloProvider } from '@apollo/client/react'
-import client from './client'
+import ReactDOM from 'react-dom'
+
+import { App } from './app'
 import { PokemonProvider } from './context/PokemonContext'
+import client from './graphql/client'
 
 ReactDOM.render(
   <ApolloProvider client={client}>

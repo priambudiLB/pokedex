@@ -1,12 +1,14 @@
 import React, { Suspense, useContext, useEffect } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Navigation from './components/Navigation'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
-import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
+
 import CssBaseline from '@material-ui/core/CssBaseline'
+import Snackbar from '@material-ui/core/Snackbar'
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
 import Alert from './components/Alert'
-import { Snackbar } from '@material-ui/core'
+import Navigation from './components/Navigation'
 import { PokemonContext } from './context/PokemonContext'
 import routes from './route'
 

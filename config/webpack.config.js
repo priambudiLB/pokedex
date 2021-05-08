@@ -1,6 +1,7 @@
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const ROOT_DIRECTORY = path.join(__dirname, '..')
 const SRC_DIRECTORY = path.join(ROOT_DIRECTORY, 'src')
@@ -26,8 +27,8 @@ const config = {
     new CopyWebpackPlugin(
       {
         patterns: [
-          { from: path.join(SRC_DIRECTORY, 'assets'), to: path.join(ROOT_DIRECTORY, 'build') }
-          // { from: path.join(SRC_DIRECTORY, 'public'), to: path.join(ROOT_DIRECTORY, 'build') }
+          { from: path.join(SRC_DIRECTORY, 'assets'), to: path.join(ROOT_DIRECTORY, 'build') },
+          { from: path.join(SRC_DIRECTORY, 'public'), to: path.join(ROOT_DIRECTORY, 'build') }
         ]
       }
     )
@@ -52,6 +53,11 @@ const config = {
         use: [
           'file-loader'
         ]
+      },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        loader: 'graphql-tag/loader'
       }
     ]
   }

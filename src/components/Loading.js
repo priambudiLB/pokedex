@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react'
-import FixedCenter from './FixedCenter'
+
 import loadingGif from '../assets/images/giphy.gif'
+import FixedCenter from './FixedCenter'
 
 const Loading = () => {
   return <FixedCenter>
