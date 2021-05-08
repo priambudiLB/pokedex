@@ -28,8 +28,8 @@ const config = {
     new CopyWebpackPlugin(
       {
         patterns: [
-          { from: path.join(SRC_DIRECTORY, 'assets'), to: path.join(ROOT_DIRECTORY, 'build') },
-          { from: path.join(SRC_DIRECTORY, 'public'), to: path.join(ROOT_DIRECTORY, 'build') }
+          { from: path.join(SRC_DIRECTORY, 'assets'), to: path.join(ROOT_DIRECTORY, 'build') }
+          // { from: path.join(SRC_DIRECTORY, 'public'), to: path.join(ROOT_DIRECTORY, 'build') }
         ]
       }
     ),

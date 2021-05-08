@@ -18,6 +18,7 @@ import Typography from '@material-ui/core/Typography'
 import Delete from '@material-ui/icons/Delete'
 
 import { PokemonContext } from '../context/PokemonContext'
+import capitalize from '../utilities/capitalize'
 
 const removeDuration = 3
 const useStyles = makeStyles({
@@ -66,6 +67,9 @@ const MyPokemonCard = ({ pokemonName, name, image }) => {
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {name}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {capitalize(pokemonName)}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>

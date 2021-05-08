@@ -69,7 +69,7 @@ const Detail = (props) => {
   }
   let caught = 0
   try {
-    caught = Object.keys(JSON.parse(localStorage.getItem('pokemons'))[data.name]).length
+    caught = Object.keys(myPokemons[data.name]).length
   } catch (e) {
 
   }
