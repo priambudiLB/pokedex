@@ -49,7 +49,20 @@ const Home = () => {
   }
 
   if (loading) {
-    return <Loading />
+    return <Container maxWidth="lg">
+      <div className={classes.root}>
+        <Grid container spacing={3}>
+          {[1, 2, 3, 4].map((props) => {
+            return (
+              <Grid key={props} item xs={12} sm={6} md={4} lg={3}>
+                <Loading />
+              </Grid>
+            )
+          }
+          )}
+        </Grid>
+      </div>
+    </Container>
   }
   if (error) {
     return <FixedCenter>
@@ -81,7 +94,7 @@ const Home = () => {
               <Grid container spacing={3}>
                 {data.map((props, idx) => {
                   return (
-                    <Grid key={idx} item xs={6} sm={6} md={4} lg={3}>
+                    <Grid key={idx} item xs={12} sm={6} md={4} lg={3}>
                       <PokemonCard {...props} />
                     </Grid>
                   )

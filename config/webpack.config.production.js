@@ -4,6 +4,7 @@ const merge = require('webpack-merge')
 const BrotliPlugin = require('brotli-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = () => {
   const output = {
@@ -34,33 +35,28 @@ module.exports = () => {
               drop_console: true
             }
           }
+        }),
+        new UglifyJsPlugin({
+          parallel: true
         })
       ],
       concatenateModules: true,
+      runtimeChunk: {
+        name: 'runtime'
+      },
       splitChunks: {
-        chunks: 'async',
+        chunks: 'all',
         maxInitialRequests: Infinity,
-        minSize: 0,
-        // maxSize: 100000,
+        minSize: 20000,
         cacheGroups: {
-          // Split vendor code to its own chunk(s)
           vendor: {
             test: /[\\/]node_modules[\\/]/,
-            chunks: 'async',
             name (module) {
               const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
               return `npm.${packageName.replace('@', '')}`
             }
           }
-        //   states: {
-        //     test: /[\\/]src[\\/]js[\\/]application[\\/]/,
-        //     chunks: 'all',
-        //     name: 'states'
-        //   }
         }
-      },
-      runtimeChunk: {
-        name: 'runtime'
       }
     }
   })
