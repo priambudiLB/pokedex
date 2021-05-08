@@ -1,7 +1,8 @@
 {
   "name": "pokedex",
   "version": "0.0.4",
-  "description": "",
+  "description": "pokedex",
+  "homepage": ".",
   "scripts": {
     "clean": "shx rm -rf build",
     "webpack": "webpack --config config/webpack.config.production.js",
@@ -18,7 +19,6 @@
   },
   "author": "ReactJSResources",
   "license": "MIT",
-  "homepage": "https://github.com/ReactJSResources/react-webpack-babel#readme",
   "dependencies": {
     "@apollo/client": "^3.3.16",
     "@babel/core": "^7.12.3",
