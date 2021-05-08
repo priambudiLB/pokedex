@@ -238,7 +238,7 @@ const Detail = (props) => {
                 error={typeof nicknameError === 'string'}
                 autoComplete='off'
                 helperText={typeof nicknameError === 'string' ? nicknameError : ''}
-                onChange={debounce(handleNickname, 500)}
+                onChange={debounce(handleNickname, 200)}
                 autoFocus
                 margin="dense"
                 id="nickname"
@@ -251,7 +251,7 @@ const Detail = (props) => {
               <Button onClick={handleRelease} color="default">
             Release
               </Button>
-              <Button disabled={typeof nicknameError === 'string'} onClick={handleFinish} color="default">
+              <Button disabled={typeof nicknameError === 'string' || nickname.length === 0} onClick={handleFinish} color="default">
             Finish
               </Button>
             </DialogActions>
