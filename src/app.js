@@ -2,7 +2,7 @@ import React, { Suspense, useContext, useEffect } from 'react'
 
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Snackbar from '@material-ui/core/Snackbar'
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
