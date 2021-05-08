@@ -178,7 +178,7 @@ const Detail = (props) => {
                   return <Chip key={index} size="small" label={data.type.name} css={css`margin: 2px;background-color: ${pokemonTypes(data.type.name)}`} />
                 })}
               </div>
-              <img width={48} height={48} ref={pokemonRef} alt={`Sprite of ${data.name}`} src={data.sprites.front_default} />
+              <img width={96} height={96} ref={pokemonRef} alt={`Sprite of ${data.name}`} src={data.sprites.front_default} />
               <Typography variant="h5" component="h2">
                 caught: {caught}
               </Typography>
