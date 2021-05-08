@@ -1,2 +1,2 @@
 User-agent: Googlebot
-Disallow: /
+Disallow: /my-pokemons
